@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  adg_frontend_container:
+    image: adg_frontend_image
+    build:
+      context: ./Administrative_Document_Generator/ADG_application
+    ports:
+      - "4200:4200"
+
+  adg_backend_container:
+    image: adg_backend_image
+    build:
+      context: ./Administrative_Document_Generator/adg_backend
+    ports:
+      - "8080:8080"
+    depends_on:
+      - adg_database_container
+
+  adg_database_container:
+    image: adg_database_image
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: adg_db
+      MYSQL_USER: root
+      MYSQL_PASSWORD: admin
+    ports:
+      - "3306:3306"
+
