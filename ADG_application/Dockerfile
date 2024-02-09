@@ -1,15 +1,11 @@
-FROM node:16-alpine3.11 as adg_frontend_image
-
+FROM node:18.17.0
+RUN mkdir -p /app
 WORKDIR /app
-
-COPY . .
-
+COPY package*.json /app
+RUN npm install -g @angular/cli
 RUN npm install
+COPY . .
+RUN npm run build --prod
+CMD [ "npm", "start" ]
 
-RUN npm run build
 
-FROM httpd:alpine3.15
-
-WORKDIR /usr/local/apache2/htdocs
-
-COPY --from=adg_frontend_image /app/dist/adg-application .

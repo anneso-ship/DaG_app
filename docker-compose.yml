@@ -1,29 +1,47 @@
 version: '3'
 
 services:
-  adg_frontend_container:
-    image: adg_frontend_image
-    build:
-      context: ./Administrative_Document_Generator/ADG_application
-    ports:
-      - "4200:4200"
-
-  adg_backend_container:
-    image: adg_backend_image
-    build:
-      context: ./Administrative_Document_Generator/adg_backend
-    ports:
-      - "8080:8080"
-    depends_on:
-      - adg_database_container
-
   adg_database_container:
-    image: adg_database_image
+    image: mysql
+    restart: always
+    container_name: adg-database
     environment:
-      MYSQL_ROOT_PASSWORD: admin
-      MYSQL_DATABASE: adg_db
-      MYSQL_USER: root
-      MYSQL_PASSWORD: admin
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: adg_db
     ports:
       - "3306:3306"
+    networks:
+      - mynet
 
+  adg_backend_container:
+    build:
+      context: ./adg_backend
+      dockerfile: Dockerfile
+    container_name: adg-api-app
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/adg_db?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC
+    restart: always
+    depends_on:
+      - adg_database_container
+    ports:
+      - "8081:8081"
+      - "30303:30303"
+    networks:
+      - mynet
+
+  adg_frontend_container:
+    build:
+      context: ./ADG_application
+      dockerfile: Dockerfile
+    container_name: adg-app
+    restart: always
+    depends_on:
+      - adg_backend_container
+    ports:
+      - "4200:4200"
+    networks:
+      - mynet
+
+networks:
+  mynet:

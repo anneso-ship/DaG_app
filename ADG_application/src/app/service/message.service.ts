@@ -12,7 +12,7 @@ export class MessageService {
 
 
    getTheMessage(): Observable<Message[]>{
-          return this.http.get<Message[]>('http://localhost:8080/message/sentence');
+          return this.http.get<Message[]>('http://adg_backend_container:8081/message/sentence');
       }
 
 
