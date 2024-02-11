@@ -1,13 +1,15 @@
 package com.application.adg;
 
-import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
+import org.junit.jupiter.api.Test;
 
 @SpringBootTest
-class AdgApplicationTests {
+@ActiveProfiles("test")
+public class AdgApplicationTests {
 
 	@Test
-	void contextLoads() {
+	public void contextLoads() {
 	}
 
 }

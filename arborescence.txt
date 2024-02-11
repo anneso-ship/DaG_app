@@ -1,0 +1,101 @@
+.
+├── ADG_application
+│   ├── angular.json
+│   ├── Dockerfile
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── README.md
+│   ├── src
+│   │   ├── app
+│   │   │   ├── app.component.html
+│   │   │   ├── app.component.scss
+│   │   │   ├── app.component.ts
+│   │   │   ├── app.module.ts
+│   │   │   ├── app-routing.module.ts
+│   │   │   ├── hello-world
+│   │   │   │   ├── hello-world.component.html
+│   │   │   │   ├── hello-world.component.scss
+│   │   │   │   └── hello-world.component.ts
+│   │   │   ├── model
+│   │   │   │   └── message.ts
+│   │   │   └── service
+│   │   │       └── message.service.ts
+│   │   ├── assets
+│   │   ├── favicon.ico
+│   │   ├── index.html
+│   │   ├── main.ts
+│   │   └── styles.scss
+│   ├── tsconfig.app.json
+│   ├── tsconfig.json
+│   └── tsconfig.spec.json
+├── adg_backend
+│   ├── Dockerfile
+│   ├── mvnw
+│   ├── mvnw.cmd
+│   ├── pom.xml
+│   ├── src
+│   │   ├── main
+│   │   │   ├── java
+│   │   │   │   └── com
+│   │   │   │       └── application
+│   │   │   │           └── adg
+│   │   │   │               ├── AdgApplication.java
+│   │   │   │               ├── Controllers
+│   │   │   │               │   └── HelloWorldController.java
+│   │   │   │               ├── Models
+│   │   │   │               │   └── Message.java
+│   │   │   │               ├── Repositories
+│   │   │   │               │   └── HelloWorldRepository.java
+│   │   │   │               └── Services
+│   │   │   │                   └── HelloWorldService.java
+│   │   │   └── resources
+│   │   │       └── application.properties
+│   │   └── test
+│   │       └── java
+│   │           └── com
+│   │               └── application
+│   │                   └── adg
+│   │                       └── AdgApplicationTests.java
+│   └── target
+│       ├── adg-0.0.1-SNAPSHOT.jar
+│       ├── adg-0.0.1-SNAPSHOT.jar.original
+│       ├── classes
+│       │   ├── application.properties
+│       │   └── com
+│       │       └── application
+│       │           └── adg
+│       │               ├── AdgApplication.class
+│       │               ├── Controllers
+│       │               │   └── HelloWorldController.class
+│       │               ├── Models
+│       │               │   └── Message.class
+│       │               ├── Repositories
+│       │               │   └── HelloWorldRepository.class
+│       │               └── Services
+│       │                   └── HelloWorldService.class
+│       ├── generated-sources
+│       │   └── annotations
+│       ├── generated-test-sources
+│       │   └── test-annotations
+│       ├── maven-archiver
+│       │   └── pom.properties
+│       ├── maven-status
+│       │   └── maven-compiler-plugin
+│       │       ├── compile
+│       │       │   └── default-compile
+│       │       │       ├── createdFiles.lst
+│       │       │       └── inputFiles.lst
+│       │       └── testCompile
+│       │           └── default-testCompile
+│       │               ├── createdFiles.lst
+│       │               └── inputFiles.lst
+│       └── test-classes
+│           └── com
+│               └── application
+│                   └── adg
+│                       └── AdgApplicationTests.class
+├── arborescence.txt
+├── docker-compose.yml
+└── README.md
+
+49 directories, 50 files
